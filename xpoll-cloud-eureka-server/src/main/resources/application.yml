@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: @pom.artifactId@  
+  profiles:
+    active: dev1
+  security:
+    user:
+      name: root
+      password: root
+      
+logging:
+  level.com.netflix.eureka: OFF
+  level.com.netflix.discovery: OFF

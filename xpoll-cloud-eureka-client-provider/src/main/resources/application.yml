@@ -1,0 +1,89 @@
+server:
+  port: 8772
+
+spring:
+  application:
+    name: @pom.artifactId@              # 指定注册到Eureka Server上的应用名称
+#  jpa:
+#    generate-ddl: false
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: none
+#  datasource:                           # 指定数据源
+#    platform: h2                        # 指定数据源类型
+#    url: jdbc:h2:mem:cloud              # 指定h2数据库的连接地址
+#    driver-class-name: org.h2.Driver    # 指定h2数据库的驱动
+#    username: root                      # 指定h2数据库的登录用户
+#    password: root                      # 指定h2数据库的登录密码
+#    schema: classpath:sql/schema.sql    # 指定h2数据库的建表脚本
+#    data: classpath:sql/data.sql        # 指定h2数据库的数据脚本
+#  h2:
+#    console:
+#      path: /h2-console
+#      enabled: true
+#      settings:
+#        web-allow-others: true
+#  cloud:
+#    config:
+#      label: master
+#      profile: item
+#      discovery:
+#        enabled: true
+#        serviceId: xpoll-cloud-config-server
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    virtual-host:
+#    username: guest
+#    password: guest
+#  zipkin:
+#    base-url: http://localhost:9411
+#    
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: *
+        
+      
+eureka:
+  instance:
+    hostname: xpoll
+    instance-id: ${spring.application.name}-${server.port}
+    prefer-ip-address: true             # 将自己的IP注册到Eureka Server。若不配置或设置为false，表示注册微服务所在操作系统的hostname到Eureka Server
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+  client:
+    service-url:
+      defaultZone: http://root:root@xpoll-eureka1:8761/eureka,http://root:root@xpoll-eureka2:8762/eureka,http://root:root@xpoll-eureka3:8763/eureka # 设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址。
+    enabled: true
+    register-with-eureka: true # 是否将自己注册到Eureka Server
+    fetch-registry: true # 表示是否从Eureka Sever获取注册信息
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

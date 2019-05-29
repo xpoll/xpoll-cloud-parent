@@ -1,0 +1,18 @@
+server:
+  port: 8762
+ 
+eureka:
+  instance:
+    hostname: xpoll-eureka2
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+  client:
+    register-with-eureka: true # 是否将自己注册到Eureka Server，默认为true。由于当前应用就是Eureka Server，故而设为false
+    fetch-registry: true # 表示是否从Eureka Sever获取注册信息，默认为true。因为这个一个单节点的Eureka Server，不需要同步其他的Eureka Server节点的数据，故而设为false
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@xpoll-eureka2:8761/eureka,http://${spring.security.user.name}:${spring.security.user.password}@xpoll-eureka3:8763/eureka # 设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址。
+    server:
+      enable-self-preservation: true
+      eviction-interval-timer-in-ms: 60000
+      
