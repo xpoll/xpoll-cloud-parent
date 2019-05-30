@@ -1,0 +1,8 @@
+server:
+  port: 8781
+
+spring:
+  application:
+    name: xpoll-cloud-config-server
+  profiles:
+    active: native

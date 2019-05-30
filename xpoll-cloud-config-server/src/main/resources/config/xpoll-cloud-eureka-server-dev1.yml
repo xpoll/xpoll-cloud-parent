@@ -1,0 +1,24 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: xpoll-cloud-eureka-server
+  security:
+    user:
+      name: root
+      password: root
+    
+eureka:
+  instance:
+    hostname: xpoll-eureka1
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@xpoll-eureka2:8762/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@xpoll-eureka3:8763/eureka/ # three eureka server
+  server:
+      waitTimeInMsWhenSyncEmpty: 0
+      enableSelfPreservation: false
+      
